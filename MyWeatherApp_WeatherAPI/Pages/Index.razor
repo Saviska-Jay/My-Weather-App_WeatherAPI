@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿ @page "/"
 @inject IJSRuntime JS
 @using MyWeatherApp_WeatherAPI.Models
 @using Newtonsoft.Json
@@ -57,7 +57,6 @@
                 <h6 class="fw-bold">Last updated: @data.current.last_updated</h6>
             </div>
             <br />
-
 
             <div class="row">
                 <div class="col-xl-3 col-sm-6 col-12">
@@ -154,12 +153,12 @@
     {
         try
         {
-            var options = new RestClientOptions("http://api.weatherapi.com/v1")
+            var options = new RestClientOptions(MyAPI_Key.BaseURL)
                 {
                     MaxTimeout = -1,
                 };
             var client = new RestClient(options);
-            var request = new RestRequest($"/current.json?key=aa6902796cd14c6990050852240810&q={cityName}&aqi=no", Method.Get);
+            var request = new RestRequest($"/current.json?key={MyAPI_Key.Key}={cityName}&aqi=no", Method.Get);
             RestResponse response = await client.ExecuteAsync(request);
 
             if (response.IsSuccessful)
