@@ -53,9 +53,10 @@
         <div id="WeatherArea">
 
             <div class="d-flex justify-content-between align-items-center">
-                <h4 class="fw-bold">Current Weather Info</h4>
+                <h2 class="fw-bold">Current Weather Info - @data.location.name , @data.location.country</h2>
                 <h6 class="fw-bold">Last updated: @data.current.last_updated</h6>
             </div>
+            <h6 class="fw-bold">Local Time: @data.location.localtime</h6>
             <br />
 
             <div class="row">
@@ -129,6 +130,8 @@
                 </div>
             </div>
         </div>
+
+
 
             <br />
             <br />
